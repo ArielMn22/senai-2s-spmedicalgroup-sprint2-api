@@ -1,4 +1,5 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="usuario">Usuarios Object</param>
         void Cadastrar(Usuarios usuario);
 
+        /// <summary>
+        /// Busca um usuário por E-mail e Senha.
+        /// </summary>
+        /// <param name="login">LoginViewModel Object</param>
+        /// <returns>Usuarios Object</returns>
         Usuarios BuscarPorEmailESenha(LoginViewModel login);
     }
 }
