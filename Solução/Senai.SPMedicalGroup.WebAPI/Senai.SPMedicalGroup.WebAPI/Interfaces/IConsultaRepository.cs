@@ -1,8 +1,5 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Senai.SPMedicalGroup.WebAPI.Interfaces
 {
@@ -31,14 +28,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// </summary>
         /// <param name="id">Id do médico</param>
         /// <returns>Uma lista de consultas.</returns>
-        List<Consultas> ListarPorIdMedico(int id);
+        List<Consultas> ListarPorIdMedico(int idMedico);
 
         /// <summary>
         /// Lista as consultas que possitem o id do paciente passado por parâmetro.
         /// </summary>
         /// <param name="id">Id do paciente.</param>
         /// <returns>Uma lista de consultas.</returns>
-        List<Consultas> ListarPorIdPaciente(int id);
+        List<Consultas> ListarPorIdPaciente(int idPaciente);
 
         /// <summary>
         /// Busca um usuário pelo ID.

@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Senai.SPMedicalGroup.WebAPI.Controllers
 {
@@ -16,13 +18,18 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
     public class ConsultasController : ControllerBase
     {
         private IConsultaRepository ConsultaRepository { get; set; }
+        private IPacienteRepository PacienteRepository { get; set; }
+        private IMedicoRepository MedicoRepository { get; set; }
 
         public ConsultasController()
         {
             ConsultaRepository = new ConsultaRepository();
+            PacienteRepository = new PacienteRepository();
+            MedicoRepository = new MedicoRepository();
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Listar()
         {
             try
@@ -39,6 +46,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Consultas consulta)
         {
             try
@@ -57,6 +65,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Administrador,Médico")]
         public IActionResult Atualizar(Consultas novaConsulta)
         {
             try
@@ -84,13 +93,26 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
             }
         }
-
-        [HttpGet("paciente/{id}")]
-        public IActionResult ListarPorPaciente(int id)
+        
+        [HttpGet("paciente")]
+        [Authorize(Roles = "Paciente")]
+        public IActionResult ListarPorPaciente()
         {
             try
             {
-                return Ok(ConsultaRepository.ListarPorIdPaciente(id));
+                int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                Pacientes pacienteProcurado = PacienteRepository.BuscarPacientePorIdUsuario(usuarioId);
+
+                if (pacienteProcurado == null)
+                {
+                    return NotFound(new
+                    {
+                        mensagem = "Paciente não encontrado em nosso banco de dados."
+                    });
+                }
+                
+                return Ok(ConsultaRepository.ListarPorIdPaciente(pacienteProcurado.Id));
             }
             catch (Exception ex)
             {
@@ -101,12 +123,25 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             }
         }
 
-        [HttpGet("medico/{id}")]
-        public IActionResult ListarPorMedico(int id)
+        [HttpGet("medico")]
+        [Authorize(Roles = "Médico")]
+        public IActionResult ListarPorMedico()
         {
             try
             {
-                return Ok(ConsultaRepository.ListarPorIdMedico(id));
+                int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                Medicos medicoProcurado = MedicoRepository.BuscarMedicoPorIdUsuario(usuarioId);
+
+                if (medicoProcurado == null)
+                {
+                    return NotFound(new
+                    {
+                        mensagem = "O médico não foi encontrado."
+                    });
+                }
+
+                return Ok(ConsultaRepository.ListarPorIdMedico(medicoProcurado.Id));
             }
             catch (Exception ex)
             {

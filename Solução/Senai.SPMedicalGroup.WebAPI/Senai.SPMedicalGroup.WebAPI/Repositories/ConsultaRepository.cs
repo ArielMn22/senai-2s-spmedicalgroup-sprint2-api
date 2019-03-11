@@ -1,9 +1,7 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Senai.SPMedicalGroup.WebAPI.Repositories
 {
@@ -46,11 +44,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<Consultas> ListarPorIdMedico(int id)
+        public List<Consultas> ListarPorIdMedico(int idMedico)
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Consultas.Where(x => x.IdMedico == id).ToList();
+                return ctx.Consultas.Where(x => x.IdMedico == idMedico).ToList();
             }
         }
 
@@ -62,11 +60,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<Consultas> ListarPorIdPaciente(int id)
+        public List<Consultas> ListarPorIdPaciente(int idPaciente)
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Consultas.Where(x => x.IdPaciente == id).ToList();
+                // Retorna as consultas do paciente
+                return ctx.Consultas.Where(x => x.IdPaciente == idPaciente).ToList();
             }
         }
     }

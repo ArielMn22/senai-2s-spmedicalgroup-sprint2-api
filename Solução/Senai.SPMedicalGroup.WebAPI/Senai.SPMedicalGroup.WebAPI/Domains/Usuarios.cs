@@ -1,5 +1,4 @@
-﻿using Senai.SPMedicalGroup.WebAPI.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Senai.SPMedicalGroup.WebAPI.Domains

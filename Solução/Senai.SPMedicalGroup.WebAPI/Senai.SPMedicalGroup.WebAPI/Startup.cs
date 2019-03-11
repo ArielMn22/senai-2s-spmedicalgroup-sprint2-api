@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 // Swagger
 using Swashbuckle.AspNetCore;
@@ -25,6 +26,32 @@ namespace Senai.SPMedicalGroup.WebAPI
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Ignora os loops;
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Ignora os nulos;
+                });
+
+            //Configurando a autenticação/jwt/token
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            }
+                ).AddJwtBearer("JwtBearer", options =>
+                {
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+
+                        ValidateAudience = true,
+
+                        ValidateLifetime = true,
+
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("spmedgroup-chave-autenticacao")),
+
+                        ClockSkew = TimeSpan.FromMinutes(30),
+
+                        ValidIssuer = "SpMedGroup.WebApi",
+
+                        ValidAudience = "SpMedGroup.WebApi"
+                    };
                 });
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -53,8 +80,9 @@ namespace Senai.SPMedicalGroup.WebAPI
                 //c.RoutePrefix = string.Empty;
             });
 
-            app.UseMvc();
+            app.UseAuthentication();
 
+            app.UseMvc();
         }
     }
 }

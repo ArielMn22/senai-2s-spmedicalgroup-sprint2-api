@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Senai.SPMedicalGroup.WebAPI.Domains;
-using Senai.SPMedicalGroup.WebAPI.Enums;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.Repositories;
 using Senai.SPMedicalGroup.WebAPI.ViewModels;
@@ -54,8 +49,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken(
-                    issuer: "SPMedGroup.WebApi",
-                    audience: "SPMedGroup.WebApi",
+                    issuer: "SpMedGroup.WebApi",
+                    //SpMedGroup.WebApi
+                    audience: "SpMedGroup.WebApi",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds

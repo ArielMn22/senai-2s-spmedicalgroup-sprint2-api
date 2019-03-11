@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Senai.SPMedicalGroup.WebAPI.Domains;
-using Senai.SPMedicalGroup.WebAPI.Enums;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;

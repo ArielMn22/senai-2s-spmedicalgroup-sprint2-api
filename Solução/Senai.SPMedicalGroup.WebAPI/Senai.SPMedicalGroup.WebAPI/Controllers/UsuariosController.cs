@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
@@ -24,7 +20,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Usuarios usuario)
         {
             try
