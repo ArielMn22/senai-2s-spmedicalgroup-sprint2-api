@@ -62,7 +62,16 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         {
             try
             {
+                if (pacienteModel.Paciente.DataNascimento.Date > DateTime.Now.Date)
+                {
+                    return BadRequest(new
+                    {
+                        mensagem = "A data de nasciemento do paciente não pode ser maior do que a data atual."
+                    });
+                }
+
                 UsuarioRepository.CadastrarPaciente(pacienteModel);
+
                 return Ok();
             }
             catch (Exception ex)
