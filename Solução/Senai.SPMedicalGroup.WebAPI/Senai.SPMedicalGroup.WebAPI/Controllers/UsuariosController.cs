@@ -14,10 +14,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
     public class UsuariosController : ControllerBase
     {
         private IUsuarioRepository UsuarioRepository { get; set; }
+        private EmailsController Email { get; set; }
 
         public UsuariosController()
         {
             UsuarioRepository = new UsuarioRepository();
+            Email = new EmailsController();
         }
 
         [HttpPost("administrador")]
@@ -27,6 +29,8 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             try
             {
                 UsuarioRepository.CadastrarAdministrador(usuario);
+                Email.Enviar(usuario);
+
                 return Ok();
             }
             catch (Exception ex)
@@ -45,6 +49,8 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             try
             {
                 UsuarioRepository.CadastrarMedico(medicoModel);
+                Email.Enviar(medicoModel.Usuario);
+
                 return Ok();
             }
             catch (Exception ex)
@@ -66,11 +72,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 {
                     return BadRequest(new
                     {
-                        mensagem = "A data de nasciemento do paciente não pode ser maior do que a data atual."
+                        mensagem = "A data de nascimento do paciente não pode ser maior do que a data atual."
                     });
                 }
 
                 UsuarioRepository.CadastrarPaciente(pacienteModel);
+                Email.Enviar(pacienteModel.Usuario);
 
                 return Ok();
             }
