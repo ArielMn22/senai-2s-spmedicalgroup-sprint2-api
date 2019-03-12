@@ -10,10 +10,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
     public interface IUsuarioRepository
     {
         /// <summary>
-        /// Cadastra um usuário no banco de dados.
+        /// Cadastra um administrador no banco de dados.
         /// </summary>
         /// <param name="usuario">Usuarios Object</param>
-        void Cadastrar(Usuarios usuario);
+        void CadastrarAdministrador(Usuarios usuario);
+
+        /// <summary>
+        /// Cadastra um paciente no banco de dados.
+        /// </summary>
+        /// <param name="usuario">PacienteViewModel Object</param>
+        void CadastrarPaciente(PacienteViewModel pacienteModel);
+
+        /// <summary>
+        /// Cadastra um médico no banco de dados.
+        /// </summary>
+        /// <param name="usuario">MedicoViewModel Object</param>
+        void CadastrarMedico(MedicoViewModel medicoModel);
 
         /// <summary>
         /// Busca um usuário por E-mail e Senha.
