@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Senai.SPMedicalGroup.WebAPI.Domains;
@@ -32,18 +33,23 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         {
             try
             {
-                CadastrarUsuarioViewModel usuario = new CadastrarUsuarioViewModel()
+                CadastrarUsuarioViewModel usuario = UsuarioRepository.RetornarUsuarioViewModel(usuarioModel);
+
+                if (usuario.FotoPerfil != null && usuario.FotoPerfil.Length > 0)
                 {
-                    Nome = usuarioModel.Nome,
-                    Email = usuarioModel.Email,
-                    Senha = usuarioModel.Senha,
-                    Telefone = usuarioModel.Telefone,
-                    FotoPerfil = usuarioModel.FotoPerfil,
-                    IdTipoUsuario = usuarioModel.IdTipoUsuario,
-                    IdClinica = usuarioModel.IdClinica
-                };
+                    string fileExt = Path.GetExtension(usuario.FotoPerfil.FileName);
+
+                    if (fileExt != ".png" && fileExt != ".jpeg")
+                    {
+                        return BadRequest(new
+                        {
+                            mensagem = "Os únicos formatos de arquivo suportados são .jpeg e .png."
+                        });
+                    }
+                }
 
                 UsuarioRepository.CadastrarUsuario(usuario);
+
                 Email.Enviar(UsuarioRepository.RetornarEmUsuarios(usuario));
 
                 return Ok();
