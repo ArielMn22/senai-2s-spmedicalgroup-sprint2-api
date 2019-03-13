@@ -15,21 +15,36 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
     {
         private IUsuarioRepository UsuarioRepository { get; set; }
         private EmailsController Email { get; set; }
+        private IPacienteRepository PacienteRepository { get; set; }
+        private IMedicoRepository MedicoRepository { get; set; }
 
         public UsuariosController()
         {
             UsuarioRepository = new UsuarioRepository();
             Email = new EmailsController();
+            PacienteRepository = new PacienteRepository();
+            MedicoRepository = new MedicoRepository();
         }
 
         [HttpPost("administrador")]
         [Authorize(Roles = "Administrador")]
-        public IActionResult CadastrarAdministrador(Usuarios usuario)
+        public IActionResult CadastrarAdministrador([FromForm] AdministradorStandaloneViewModel usuarioModel)
         {
             try
             {
-                UsuarioRepository.CadastrarAdministrador(usuario);
-                Email.Enviar(usuario);
+                CadastrarUsuarioViewModel usuario = new CadastrarUsuarioViewModel()
+                {
+                    Nome = usuarioModel.Nome,
+                    Email = usuarioModel.Email,
+                    Senha = usuarioModel.Senha,
+                    Telefone = usuarioModel.Telefone,
+                    FotoPerfil = usuarioModel.FotoPerfil,
+                    IdTipoUsuario = usuarioModel.IdTipoUsuario,
+                    IdClinica = usuarioModel.IdClinica
+                };
+
+                UsuarioRepository.CadastrarUsuario(usuario);
+                Email.Enviar(UsuarioRepository.RetornarEmUsuarios(usuario));
 
                 return Ok();
             }
@@ -44,12 +59,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
         [HttpPost("medico")]
         [Authorize(Roles = "Administrador")]
-        public IActionResult CadastrarMedico(MedicoViewModel medicoModel)
+        public IActionResult CadastrarMedico([FromForm] MedicoStandaloneViewModel medicoModel)
         {
             try
             {
-                UsuarioRepository.CadastrarMedico(medicoModel);
-                Email.Enviar(medicoModel.Usuario);
+                MedicoViewModel medico = MedicoRepository.RetornarMedicoViewModel(medicoModel);
+
+                UsuarioRepository.CadastrarMedico(medico);
+                Email.Enviar(UsuarioRepository.RetornarEmUsuarios(medico.UsuarioViewModel));
 
                 return Ok();
             }
@@ -64,11 +81,13 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
         [HttpPost("paciente")]
         [Authorize(Roles = "Administrador")]
-        public IActionResult CadastrarPaciente(PacienteViewModel pacienteModel)
+        public IActionResult CadastrarPaciente([FromForm] PacienteStandaloneViewModel pacienteModel)
         {
             try
             {
-                if (pacienteModel.Paciente.DataNascimento.Date > DateTime.Now.Date)
+                PacienteViewModel paciente = PacienteRepository.RetornarPacienteViewModel(pacienteModel);
+
+                if (paciente.Paciente.DataNascimento.Date > DateTime.Now.Date)
                 {
                     return BadRequest(new
                     {
@@ -76,8 +95,8 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                     });
                 }
 
-                UsuarioRepository.CadastrarPaciente(pacienteModel);
-                Email.Enviar(pacienteModel.Usuario);
+                UsuarioRepository.CadastrarPaciente(paciente);
+                Email.Enviar(UsuarioRepository.RetornarEmUsuarios(paciente.UsuarioViewModel));
 
                 return Ok();
             }

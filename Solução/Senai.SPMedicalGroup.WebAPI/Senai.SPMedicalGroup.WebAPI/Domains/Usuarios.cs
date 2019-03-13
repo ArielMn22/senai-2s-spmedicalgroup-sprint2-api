@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Senai.SPMedicalGroup.WebAPI.Domains
@@ -19,6 +18,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Domains
         public string Telefone { get; set; }
         public int? IdTipoUsuario { get; set; }
         public int? IdClinica { get; set; }
+        public string Fotoperfil { get; set; }
 
         public Clinica IdClinicaNavigation { get; set; }
         public TipoUsuario IdTipoUsuarioNavigation { get; set; }

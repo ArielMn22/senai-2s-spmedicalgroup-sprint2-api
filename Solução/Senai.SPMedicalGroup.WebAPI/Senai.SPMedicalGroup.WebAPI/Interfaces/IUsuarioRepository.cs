@@ -10,10 +10,10 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
     public interface IUsuarioRepository
     {
         /// <summary>
-        /// Cadastra um administrador no banco de dados.
+        /// Cadastra um usuário no banco de dados, o mesmo que cadastrar um administrador.
         /// </summary>
         /// <param name="usuario">Usuarios Object</param>
-        void CadastrarAdministrador(Usuarios usuario);
+        void CadastrarUsuario(CadastrarUsuarioViewModel usuario);
 
         /// <summary>
         /// Cadastra um paciente no banco de dados.
@@ -33,5 +33,19 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="login">LoginViewModel Object</param>
         /// <returns>Usuarios Object</returns>
         Usuarios BuscarPorEmailESenha(LoginViewModel login);
+
+        /// <summary>
+        /// Retorna um Usuarios a partir da VIewModel.
+        /// </summary>
+        /// <param name="usuarioViewModel"></param>
+        /// <returns></returns>
+        Usuarios RetornarEmUsuarios(CadastrarUsuarioViewModel usuarioViewModel);
+
+        /// <summary>
+        /// Retorna um CadastrarUsuarioViewModel a partir de um AdministradorStandaloneViewModel
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        CadastrarUsuarioViewModel RetornarUsuarioViewModel(AdministradorStandaloneViewModel usuarioModel);
     }
 }
