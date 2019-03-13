@@ -21,10 +21,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
         static async Task EnviarEmail()
         {
-            var apiKey = "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";
-            //var apiKey = Environment.GetEnvironmentVariable("SP");
+            var apiKey = "@APIKeyNumber";
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("arielmn22@gmail.com", "Ariel Paixão");
+            var from = new EmailAddress("@MyEmailAddress", "@MyName");
             var subject = "Parabéns por se cadastrar na SP Medical Group!!";
             var to = new EmailAddress(email.EmailDestinatario, email.NomeDestinatario);
             var plainTextContent = "Parabéns " + email.NomeDestinatario + "! Você acaba de se cadastrar na SP Medical Group com o perfil de " + email.TipoUsuario + ". Aplicação desenvolvida por Ariel Paixão, GitHub: https://github.com/arielmn22";
