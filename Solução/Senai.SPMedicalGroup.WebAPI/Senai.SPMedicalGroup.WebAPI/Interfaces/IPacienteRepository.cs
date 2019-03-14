@@ -1,4 +1,5 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="idUsuario">Id do usuário que está relacionado com o paciente.</param>
         /// <returns>Um Paciente</returns>
         Pacientes BuscarPacientePorIdUsuario(int idUsuario);
+
+        /// <summary>
+        /// Retorna um PacienteViewModel a partir de um PacienteStandaloneViewModel
+        /// </summary>
+        /// <param name="pacienteModel"></param>
+        /// <returns></returns>
+        PacienteViewModel RetornarPacienteViewModel(PacienteStandaloneViewModel pacienteModel);
     }
 }

@@ -28,7 +28,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=SPMEDICALGROUP_TARDE; user id=sa; pwd=132");
             }
         }
@@ -254,6 +254,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Domains
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasColumnName("EMAIL")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fotoperfil)
+                    .HasColumnName("FOTOPERFIL")
                     .HasMaxLength(255)
                     .IsUnicode(false);
 

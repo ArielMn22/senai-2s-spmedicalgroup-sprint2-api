@@ -59,7 +59,7 @@
 			"response": []
 		},
 		{
-			"name": "Cadastrar Administrador",
+			"name": "Cadastrar Administrador (StandaloneViewModel)",
 			"request": {
 				"url": "http://localhost:5000/api/usuarios/administrador",
 				"method": "POST",
@@ -67,17 +67,55 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"description": ""
+						"description": "",
+						"disabled": true
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMjM0NiwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.pO1_CdqkcPR5Qq22xme-rtxf7wZYOsIrPsURcvHF6IY",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwOTIxMCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.0_M8voj0tsYhvWWE2CcL476jhn_o_IvAxSNosV8QAks",
 						"description": ""
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"Admin2\",\n\t\"email\": \"admin@admin2.com\",\n\t\"senha\": \"admin2\",\n\t\"telefone\": \"11911111111\",\n\t\"idTipoUsuario\": 2,\n\t\"idClinica\": 1\n}"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Nome",
+							"value": "OPA",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "opa@opa.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Senha",
+							"value": "opaopa",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "IdTipoUsuario",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "IdClinica",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "FotoPerfil",
+							"description": "",
+							"type": "file",
+							"src": "Portfólio Ariel.png"
+						}
+					]
 				},
 				"description": ""
 			},
@@ -97,7 +135,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\":\"roberto.possarle@spmedicalgroup.com.br\",\n\t\"senha\":\"Roberto Possarle\"\n}"
+					"raw": "{\n\t\"email\":\"admin@admin.com\",\n\t\"senha\":\"admin\"\n}"
 				},
 				"description": ""
 			},
@@ -129,50 +167,174 @@
 			"response": []
 		},
 		{
-			"name": "Cadastrar Médico (View Model)",
+			"name": "Cadastrar Médico (StandaloneViewModel)",
 			"request": {
 				"url": "http://localhost:5000/api/usuarios/medico",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMjM0NiwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.pO1_CdqkcPR5Qq22xme-rtxf7wZYOsIrPsURcvHF6IY",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwOTIxMCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.0_M8voj0tsYhvWWE2CcL476jhn_o_IvAxSNosV8QAks",
 						"description": ""
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"description": ""
+						"description": "",
+						"disabled": true
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"usuario\": {\n    \"nome\": \"Medico2\",\n    \"email\": \"medico2@medico2.com\",\n    \"senha\": \"medico2\",\n    \"telefone\": \"11111111\",\n    \"idTipoUsuario\": 2,\n    \"idClinica\": 1\n\t},\n\t\"medico\": {\n    \"idEspecialidade\": 2,\n    \"crm\": \"222223\"\n\t}\n}"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Nome",
+							"value": "Johnson",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Email",
+							"value": "json@json.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Senha",
+							"value": "JSONJSON",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Telefone",
+							"value": "1231231\n\n",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "FotoPerfil",
+							"description": "",
+							"type": "file",
+							"src": "github-icon.png"
+						},
+						{
+							"key": "IdTipoUsuario",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "IdClinica",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "IdEspecialidade",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Crm",
+							"value": "222",
+							"description": "",
+							"type": "text"
+						}
+					]
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Cadastrar Paciente (ViewModel)",
+			"name": "Cadastrar Paciente (StandaloneViewModel)",
 			"request": {
 				"url": "http://localhost:5000/api/usuarios/paciente",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQxODk3MiwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.Kcu5WcMXCLX7xzpyCE2zexpIcUl5Sb64RkctuOOw9Tg",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwNjM4NSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.bq8bJ0Epbz0q09OliymBIkZdVI4_DED6iioAk4YJ1eg",
 						"description": ""
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"usuario\": {\n    \"nome\": \"Ariel\",\n    \"email\": \"arielpaixao10@gmail.com\",\n    \"senha\": \"123123\",\n    \"telefone\": \"11111113\",\n    \"idTipoUsuario\": 3,\n    \"idClinica\": 1\n\t},\n\t\"paciente\": {\n    \"rg\": \"111111589\",\n    \"cpf\": \"1111115179\",\n    \"dataNascimento\": \"2019-03-12T17:14:45.421Z\",\n    \"endereco\": \"rua paciente3\"\n\t}\n}"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Nome",
+							"value": "pacientestand",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Email",
+							"value": "pacientes@stand.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Senha",
+							"value": "123123123",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Telefone",
+							"value": "11111111",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "IdTipoUsuario",
+							"value": "3",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "IdClinica",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Rg",
+							"value": "1231231",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Cpf",
+							"value": "1231231",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "DataNascimento",
+							"value": "12/2/2002",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Endereco",
+							"value": "Rua Helvetia",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "FotoPerfil",
+							"description": "",
+							"type": "file",
+							"src": "Ariel Paixão dos Santos.jpg"
+						}
+					]
 				},
 				"description": ""
 			},
@@ -236,13 +398,13 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjMzNjgzMywiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.Jzl-SG6ay5bIAh5KH89EmUbVNUu64fltvqEaPQX4lSo",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMzEyOSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.ZOqRHy0C03b0TGYr-t2A7poAd5TJvFufCMsV2SyM0yI",
 						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\":2,\n\t\"horarioFuncionamento\":\"das 8 as 12\",\n\t\"localidade\":\"Rua aro\"\n}"
+					"raw": "{\n\t\"id\":3,\n\t\"horarioFuncionamento\":\"das 10 as 12\",\n\t\"localidade\":\"Rua aro2\"\n}"
 				},
 				"description": ""
 			},

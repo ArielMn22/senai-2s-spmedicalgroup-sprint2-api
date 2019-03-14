@@ -11,7 +11,7 @@ namespace Senai.SPMedicalGroup.WebAPI.ViewModels
         /// <summary>
         /// Guarda as informações referentes ao usuário.
         /// </summary>
-        public Usuarios Usuario { get; set; }
+        public CadastrarUsuarioViewModel UsuarioViewModel { get; set; }
 
         /// <summary>
         /// Guarda as informações referentes ao médico.
