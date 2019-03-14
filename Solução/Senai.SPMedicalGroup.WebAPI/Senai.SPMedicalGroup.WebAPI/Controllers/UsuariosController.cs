@@ -37,9 +37,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
                 if (usuario.FotoPerfil != null && usuario.FotoPerfil.Length > 0)
                 {
-                    string fileExt = Path.GetExtension(usuario.FotoPerfil.FileName);
+                    string fileExt = Path.GetExtension(usuarioModel.FotoPerfil.FileName);
 
-                    if (fileExt != ".png" && fileExt != ".jpeg")
+                    if (fileExt != ".png" && fileExt != ".jpeg" && fileExt != ".jpg")
                     {
                         return BadRequest(new
                         {
@@ -71,6 +71,19 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             {
                 MedicoViewModel medico = MedicoRepository.RetornarMedicoViewModel(medicoModel);
 
+                if (medicoModel.FotoPerfil != null && medicoModel.FotoPerfil.Length > 0)
+                {
+                    string fileExt = Path.GetExtension(medicoModel.FotoPerfil.FileName);
+
+                    if (fileExt != ".png" && fileExt != ".jpeg" && fileExt != ".jpg")
+                    {
+                        return BadRequest(new
+                        {
+                            mensagem = "Os únicos formatos de arquivo suportados são .jpeg e .png."
+                        });
+                    }
+                }
+
                 UsuarioRepository.CadastrarMedico(medico);
                 Email.Enviar(UsuarioRepository.RetornarEmUsuarios(medico.UsuarioViewModel));
 
@@ -92,6 +105,19 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             try
             {
                 PacienteViewModel paciente = PacienteRepository.RetornarPacienteViewModel(pacienteModel);
+
+                if (pacienteModel.FotoPerfil != null && pacienteModel.FotoPerfil.Length > 0)
+                {
+                    string fileExt = Path.GetExtension(pacienteModel.FotoPerfil.FileName);
+
+                    if (fileExt != ".png" && fileExt != ".jpeg" && fileExt != ".jpg")
+                    {
+                        return BadRequest(new
+                        {
+                            mensagem = "Os únicos formatos de arquivo suportados são .jpeg e .png."
+                        });
+                    }
+                }
 
                 if (paciente.Paciente.DataNascimento.Date > DateTime.Now.Date)
                 {
