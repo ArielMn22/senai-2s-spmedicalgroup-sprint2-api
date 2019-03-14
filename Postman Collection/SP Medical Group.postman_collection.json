@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "SP Medical Group",
-		"_postman_id": "c91a4125-c61e-e342-63c7-3241c3c80f25",
+		"_postman_id": "15acd3a3-6067-4be8-9042-8ac9ed519e82",
 		"description": "API EndPoints.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -15,12 +15,14 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMjM0NiwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.pO1_CdqkcPR5Qq22xme-rtxf7wZYOsIrPsURcvHF6IY",
-						"description": ""
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMjM0NiwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.pO1_CdqkcPR5Qq22xme-rtxf7wZYOsIrPsURcvHF6IY"
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
 			},
 			"response": []
 		},
@@ -32,12 +34,14 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYmVydG8ucG9zc2FybGVAc3BtZWRpY2FsZ3JvdXAuY29tLmJyIiwianRpIjoiMiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik3DqWRpY28iLCJleHAiOjE1NTI0MjI5MDcsImlzcyI6IlNwTWVkR3JvdXAuV2ViQXBpIiwiYXVkIjoiU3BNZWRHcm91cC5XZWJBcGkifQ.H1xfgcHUcB98PM8v0Mpn5x5A9qv8xRuxh6Yws3xPIVg",
-						"description": ""
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvYmVydG8ucG9zc2FybGVAc3BtZWRpY2FsZ3JvdXAuY29tLmJyIiwianRpIjoiMiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik3DqWRpY28iLCJleHAiOjE1NTI0MjI5MDcsImlzcyI6IlNwTWVkR3JvdXAuV2ViQXBpIiwiYXVkIjoiU3BNZWRHcm91cC5XZWJBcGkifQ.H1xfgcHUcB98PM8v0Mpn5x5A9qv8xRuxh6Yws3xPIVg"
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
 			},
 			"response": []
 		},
@@ -49,12 +53,14 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAb3V0bG9vay5jb20iLCJqdGkiOiIxMCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlBhY2llbnRlIiwiZXhwIjoxNTUyNDIyODM5LCJpc3MiOiJTcE1lZEdyb3VwLldlYkFwaSIsImF1ZCI6IlNwTWVkR3JvdXAuV2ViQXBpIn0.i0DKXfR-sabJoOSagsdZSp6kZKxLxTAkJPA2dW3yZl8",
-						"description": ""
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhbmFAb3V0bG9vay5jb20iLCJqdGkiOiIxMCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlBhY2llbnRlIiwiZXhwIjoxNTUyNDIyODM5LCJpc3MiOiJTcE1lZEdyb3VwLldlYkFwaSIsImF1ZCI6IlNwTWVkR3JvdXAuV2ViQXBpIn0.i0DKXfR-sabJoOSagsdZSp6kZKxLxTAkJPA2dW3yZl8"
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
 			},
 			"response": []
 		},
@@ -72,7 +78,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwOTIxMCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.0_M8voj0tsYhvWWE2CcL476jhn_o_IvAxSNosV8QAks",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjU5MDY0OCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.Uch2hFp2Y3rM7IGntDFobsID-PFq0HUTyJDRrWpaWdE",
 						"description": ""
 					}
 				],
@@ -81,43 +87,43 @@
 					"formdata": [
 						{
 							"key": "Nome",
-							"value": "OPA",
-							"description": "",
-							"type": "text"
+							"value": "Cleber",
+							"type": "text",
+							"description": "Nome do administrador"
 						},
 						{
 							"key": "Email",
-							"value": "opa@opa.com",
-							"description": "",
-							"type": "text"
+							"value": "cleber@email.com",
+							"type": "text",
+							"description": "Email do administrador"
 						},
 						{
 							"key": "Senha",
-							"value": "opaopa",
-							"description": "",
-							"type": "text"
+							"value": "cleeeber",
+							"type": "text",
+							"description": "Senha do administrador"
 						},
 						{
 							"key": "IdTipoUsuario",
 							"value": "1",
-							"description": "",
-							"type": "text"
+							"type": "text",
+							"description": "Id do tipo do usuário Administrador = 1"
 						},
 						{
 							"key": "IdClinica",
 							"value": "1",
-							"description": "",
-							"type": "text"
+							"type": "text",
+							"description": "Id da clínica = 1"
 						},
 						{
 							"key": "FotoPerfil",
-							"description": "",
 							"type": "file",
-							"src": "Portfólio Ariel.png"
+							"value": "",
+							"description": "Arquivo da foto de perfil do administrador"
 						}
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -129,15 +135,14 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"email\":\"admin@admin.com\",\n\t\"senha\":\"admin\"\n}"
+					"raw": "{\n  \"email\":\"admin@admin.com\",\n  \"senha\":\"admin\"\n}"
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -149,20 +154,18 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMzEyOSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.ZOqRHy0C03b0TGYr-t2A7poAd5TJvFufCMsV2SyM0yI",
-						"description": ""
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMzEyOSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.ZOqRHy0C03b0TGYr-t2A7poAd5TJvFufCMsV2SyM0yI"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nome\":\"Ariel Techlogies Inc. 2\",\n\t\"razaoSocial\":\"Ariel Paixão dos Santos\",\n\t\"cnpj\":\"11111111111112\",\n\t\"horarioFuncionamento\":\"das 6 as 12\",\n\t\"localidade\":\"Rua tarara2\"\n}"
+					"raw": "{\n  \"nome\":\"Ariel Techlogies Inc. 2\",\n  \"razaoSocial\":\"Ariel Paixão dos Santos\",\n  \"cnpj\":\"11111111111112\",\n  \"horarioFuncionamento\":\"das 6 as 12\",\n  \"localidade\":\"Rua tarara2\"\n}"
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -174,7 +177,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwOTIxMCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.0_M8voj0tsYhvWWE2CcL476jhn_o_IvAxSNosV8QAks",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjU5MDY0OCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.Uch2hFp2Y3rM7IGntDFobsID-PFq0HUTyJDRrWpaWdE",
 						"description": ""
 					},
 					{
@@ -190,60 +193,51 @@
 						{
 							"key": "Nome",
 							"value": "Johnson",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "Email",
 							"value": "json@json.com",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "Senha",
 							"value": "JSONJSON",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "Telefone",
 							"value": "1231231\n\n",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "FotoPerfil",
-							"description": "",
 							"type": "file",
-							"src": "github-icon.png"
+							"src": "img.jpg"
 						},
 						{
 							"key": "IdTipoUsuario",
 							"value": "2",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "IdClinica",
 							"value": "1",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "IdEspecialidade",
 							"value": "2",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "Crm",
-							"value": "222",
-							"description": "",
+							"value": "223",
 							"type": "text"
 						}
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -261,7 +255,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjUwNjM4NSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.bq8bJ0Epbz0q09OliymBIkZdVI4_DED6iioAk4YJ1eg",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjU5MDY0OCwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.Uch2hFp2Y3rM7IGntDFobsID-PFq0HUTyJDRrWpaWdE",
 						"description": ""
 					}
 				],
@@ -270,73 +264,73 @@
 					"formdata": [
 						{
 							"key": "Nome",
-							"value": "pacientestand",
+							"value": "Lissandra",
 							"type": "text",
-							"description": ""
+							"description": "Nome do paciente"
 						},
 						{
 							"key": "Email",
-							"value": "pacientes@stand.com",
+							"value": "lissandra@email.com",
 							"type": "text",
-							"description": ""
+							"description": "Email do paciente"
 						},
 						{
 							"key": "Senha",
-							"value": "123123123",
+							"value": "lissaandra",
 							"type": "text",
-							"description": ""
+							"description": "Senha do paciente"
 						},
 						{
 							"key": "Telefone",
-							"value": "11111111",
+							"value": "1195555-5555",
 							"type": "text",
-							"description": ""
+							"description": "Telefone do paciente"
 						},
 						{
 							"key": "IdTipoUsuario",
 							"value": "3",
 							"type": "text",
-							"description": ""
+							"description": "Id do tipo do usuário"
 						},
 						{
 							"key": "IdClinica",
 							"value": "1",
 							"type": "text",
-							"description": ""
+							"description": "Id da clínica do paciente"
 						},
 						{
 							"key": "Rg",
-							"value": "1231231",
+							"value": "123123124",
 							"type": "text",
-							"description": ""
+							"description": "RG do paciente"
 						},
 						{
 							"key": "Cpf",
-							"value": "1231231",
+							"value": "123123124",
 							"type": "text",
-							"description": ""
+							"description": "CPF do paciente"
 						},
 						{
 							"key": "DataNascimento",
 							"value": "12/2/2002",
 							"type": "text",
-							"description": ""
+							"description": "Data de nasciemento do paciente"
 						},
 						{
 							"key": "Endereco",
-							"value": "Rua Helvetia",
+							"value": "Alameda Barão de Limeira",
 							"type": "text",
-							"description": ""
+							"description": "Endereço do paciente"
 						},
 						{
 							"key": "FotoPerfil",
-							"description": "",
+							"description": "Foto de perfil do paciente",
 							"type": "file",
-							"src": "Ariel Paixão dos Santos.jpg"
+							"src": "img.jpg"
 						}
 					]
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -354,9 +348,9 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"idPaciente\": 7,\n        \"idMedico\": 3,\n        \"dataConsulta\": \"2019-01-20T15:00:00\",\n        \"observacoes\": \"Adicionando descrição para teste.\",\n        \"idStatus\": 3\n    }"
+					"raw": "{\n    \"idPaciente\": 7,\n    \"idMedico\": 3,\n    \"dataConsulta\": \"2019-01-20T15:00:00\",\n    \"observacoes\": \"Adicionando descrição para teste.\",\n    \"idStatus\": 3\n}"
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -379,9 +373,9 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\t\"id\": 1,\n        \"observacoes\": \"Admin trocando o status\",\n        \"idStatus\": 3\n    }"
+					"raw": "{\n    \"id\": 1,\n    \"observacoes\": \"Trocando o status.\",\n    \"idStatus\": 3\n}"
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		},
@@ -393,20 +387,18 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMzEyOSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.ZOqRHy0C03b0TGYr-t2A7poAd5TJvFufCMsV2SyM0yI",
-						"description": ""
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU1MjQyMzEyOSwiaXNzIjoiU3BNZWRHcm91cC5XZWJBcGkiLCJhdWQiOiJTcE1lZEdyb3VwLldlYkFwaSJ9.ZOqRHy0C03b0TGYr-t2A7poAd5TJvFufCMsV2SyM0yI"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\":3,\n\t\"horarioFuncionamento\":\"das 10 as 12\",\n\t\"localidade\":\"Rua aro2\"\n}"
+					"raw": "{\n  \"id\":3,\n  \"horarioFuncionamento\":\"das 10 as 12\",\n  \"localidade\":\"Rua aro2\"\n}"
 				},
-				"description": ""
+				"description": null
 			},
 			"response": []
 		}
