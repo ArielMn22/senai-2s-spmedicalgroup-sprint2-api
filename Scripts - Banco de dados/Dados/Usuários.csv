@@ -1,11 +1,11 @@
-ID;NOME;EMAIL;SENHA;TELEFONE;TIPO_USUARIO;ID_CLINICA
-1;Ricardo Lemos;ricardo.lemos@spmedicalgroup.com.br;Ricardo Lemos;;2;1
-2;Roberto Possarle;roberto.possarle@spmedicalgroup.com.br;Roberto Possarle;;2;1
-3;Helena Strada;roberto.possarle@spmedicalgroup.com.br;Helena Strada;;2;1
-4;Ligia;ligia@gmail.com;Ligia;11 3456-7654;3;1
-5;Alexandre;alexandre@gmail.com;Alexandre;11 98765-6543;3;1
-6;Fernando;fernando@gmail.com;Fernando;11 97208-4453;3;1
-7;Henrique;henrique@gmail.com;Henrique;11 3456-6543;3;1
-8;João;joao@hotmail.com;João;11 7656-6377;3;1
-9;Bruno;bruno@gmail.com;Bruno;11 95436-8769;3;1
-10;Mariana;mariana@outlook.com;Mariana;11 95436-8769;3;1
+ID;NOME;EMAIL;SENHA;TELEFONE;FOTOPERFIL;ID_TIPO_USUARIO;ID_CLINICA
+1;Ricardo Lemos;ricardo.lemos@spmedicalgroup.com.br;Ricardo Lemos;;;2;1
+2;Roberto Possarle;roberto.possarle@spmedicalgroup.com.br;Roberto Possarle;;;2;1
+3;Helena Strada;helena.strada@spmedicalgroup.com.br;Helena Strada;;;2;1
+4;Ligia;ligia@gmail.com;Ligia;11 3456-7654;;3;1
+5;Alexandre;alexandre@gmail.com;Alexandre;11 98765-6543;;3;1
+6;Fernando;fernando@gmail.com;Fernando;11 97208-4453;;3;1
+7;Henrique;henrique@gmail.com;Henrique;11 3456-6543;;3;1
+8;João;joao@hotmail.com;João;11 7656-6377;;3;1
+9;Bruno;bruno@gmail.com;Bruno;11 95436-8769;;3;1
+10;Mariana;mariana@outlook.com;Mariana;11 95436-8769;;3;1
