@@ -1,4 +1,5 @@
-﻿using Senai.SPMedicalGroup.WebAPI.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
@@ -15,6 +16,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 return ctx.Medicos.FirstOrDefault(x => x.IdUsuario == Idusuario);
+            }
+        }
+
+        public List<Medicos> ListarMedicos()
+        {
+            using (SPMedGroupContext ctx = new SPMedGroupContext())
+            {
+                return ctx.Medicos.Include(x => x.IdUsuarioNavigation).ToList();
             }
         }
 

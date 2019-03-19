@@ -19,7 +19,13 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <summary>
         /// Retorna um MedicoViewModel a partir de um MedicoStandaloneViewModel
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retorna um MedicoViewModel</returns>
         MedicoViewModel RetornarMedicoViewModel(MedicoStandaloneViewModel medicoModel);
+
+        /// <summary>
+        /// Irá listar todos os médicos cadastrados.
+        /// </summary>
+        /// <returns>Retorna uma lista do tipo List<MedicoViewModel></returns>
+        List<Medicos> ListarMedicos();
     }
 }

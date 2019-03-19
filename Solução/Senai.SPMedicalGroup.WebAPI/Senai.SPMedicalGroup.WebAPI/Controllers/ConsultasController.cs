@@ -9,6 +9,7 @@ using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Senai.SPMedicalGroup.WebAPI.Controllers
 {
@@ -81,7 +82,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 }
 
                 ConsultaRepository.Atualizar(novaConsulta, consultaCadastrada);
-                
+
                 return Ok();
             }
             catch (Exception ex)
@@ -93,7 +94,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
             }
         }
-        
+
         [HttpGet("paciente")]
         [Authorize(Roles = "Paciente")]
         public IActionResult ListarPorPaciente()
@@ -111,8 +112,43 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                         mensagem = "Paciente não encontrado em nosso banco de dados."
                     });
                 }
-                
+
                 return Ok(ConsultaRepository.ListarPorIdPaciente(pacienteProcurado.Id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Erro: " + ex
+                });
+            }
+        }
+
+        [HttpGet("listarporusuariologado")]
+        [Authorize]
+        public IActionResult ListarPorLogado()
+        {
+            try
+            {
+                int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                string usuarioTipo = HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role).Value.ToString();
+
+                if (usuarioTipo == "Médico")
+                {
+                    return Ok(ConsultaRepository.ListarPorIdMedico(usuarioId));
+                }
+                else if (usuarioTipo == "Paciente")
+                {
+                    return Ok(ConsultaRepository.ListarPorIdPaciente(usuarioId));
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        mensagem = "Não foi possível listar, verifique se está logado como paciente ou médico."
+                    });
+                }
+
             }
             catch (Exception ex)
             {

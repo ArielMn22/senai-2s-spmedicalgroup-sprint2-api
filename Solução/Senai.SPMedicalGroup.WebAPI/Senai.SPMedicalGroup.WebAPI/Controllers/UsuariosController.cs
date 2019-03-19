@@ -27,6 +27,40 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             MedicoRepository = new MedicoRepository();
         }
 
+        [HttpGet("medicos")]
+        [Authorize]
+        public IActionResult ListarMedicos()
+        {
+            try
+            {
+                return Ok(MedicoRepository.ListarMedicos());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Erro: " + ex
+                });
+            }
+        }
+
+        [HttpGet("pacientes")]
+        [Authorize]
+        public IActionResult ListarPacientes()
+        {
+            try
+            {
+                return Ok(PacienteRepository.ListarPacientes());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Erro: " + ex
+                });
+            }
+        }
+
         [HttpPost("administrador")]
         [Authorize(Roles = "Administrador")]
         public IActionResult CadastrarAdministrador([FromForm] AdministradorStandaloneViewModel usuarioModel)

@@ -22,5 +22,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="pacienteModel"></param>
         /// <returns></returns>
         PacienteViewModel RetornarPacienteViewModel(PacienteStandaloneViewModel pacienteModel);
+
+        /// <summary>
+        /// Lista os pacientes cadastrados no sistema.
+        /// </summary>
+        /// <returns>Retornar uma lista de pacientes.</returns>
+        List<Pacientes> ListarPacientes();
     }
 }
