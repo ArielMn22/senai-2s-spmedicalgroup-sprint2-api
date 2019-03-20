@@ -1,0 +1,1 @@
+Colocar os arquivos .csv encontrados neste diretório no caminho 'C:\db\' do seu sistema para que sejam cadastradas usando a procedure do banco de dados, caso a pasta 'db' não exista, crie-a.
