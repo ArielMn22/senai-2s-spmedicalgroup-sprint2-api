@@ -43,5 +43,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="id">Id da consulta.</param>
         /// <returns>uma Consulta.</returns>
         Consultas BuscarPorId(int id);
+
+        /// <summary>
+        /// Valida se a consulta pode ser cadastrada ou não;
+        /// </summary>
+        /// <param name="consulta">Objeto Consultas</param>
+        /// <returns>Se true, pode ser cadastrada, se false, não pode ser cadastrada.</returns>
+        bool ValidarConsulta(Consultas consulta);
     }
 }

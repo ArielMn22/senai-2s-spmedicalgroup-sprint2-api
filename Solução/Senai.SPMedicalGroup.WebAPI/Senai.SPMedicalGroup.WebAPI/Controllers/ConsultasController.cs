@@ -52,9 +52,18 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         {
             try
             {
-                ConsultaRepository.Cadastrar(consulta);
-
-                return Ok();
+                if (ConsultaRepository.ValidarConsulta(consulta))
+                {
+                    ConsultaRepository.Cadastrar(consulta);
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        mensagem = "Consulta não pode ser cadastrada, provavelmente a data informada já foi cadastrada em uma consulta, adicione um intervalo de 31 minutos e tente novamente."
+                    });
+                }
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -67,6 +68,35 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                 // Retorna as consultas do paciente
                 return ctx.Consultas.Where(x => x.IdPaciente == idPaciente).ToList();
             }
+        }
+
+        public bool ValidarConsulta(Consultas consulta)
+        {
+            List<Consultas> consultasMedico;
+
+            using (SPMedGroupContext ctx = new SPMedGroupContext())
+            {
+                consultasMedico = new List<Consultas>();
+
+                consultasMedico = ctx.Consultas.Where(x => x.IdMedico == consulta.IdMedico).ToList();
+            }
+
+
+            foreach (Consultas consultaItem in consultasMedico)
+            {
+                // Para ser válida, a data da consulta que está sendo cadastrada deve ser maior que 30 minutos da data da consulta cadastrada ou 30 minutos menor que a data da consulta cadastrada,
+                // havendo assim um intervalo de 30 minutos entre cada consulta.
+                if (consultaItem.DataConsulta > consulta.DataConsulta.AddMinutes(30) || consultaItem.DataConsulta < consulta.DataConsulta - TimeSpan.FromMinutes(30))
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
