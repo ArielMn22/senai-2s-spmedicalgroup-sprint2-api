@@ -16,9 +16,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Domains
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Telefone { get; set; }
+        public string Fotoperfil { get; set; }
         public int? IdTipoUsuario { get; set; }
         public int? IdClinica { get; set; }
-        public string Fotoperfil { get; set; }
 
         public Clinica IdClinicaNavigation { get; set; }
         public TipoUsuario IdTipoUsuarioNavigation { get; set; }

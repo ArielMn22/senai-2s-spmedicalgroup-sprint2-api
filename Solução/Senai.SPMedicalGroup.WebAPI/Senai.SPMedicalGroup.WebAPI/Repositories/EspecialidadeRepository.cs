@@ -14,6 +14,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 ctx.Especialidades.Add(especialidade);
+                ctx.SaveChanges();
             }
         }
 

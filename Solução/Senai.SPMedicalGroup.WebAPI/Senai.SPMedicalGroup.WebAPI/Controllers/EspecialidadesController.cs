@@ -14,11 +14,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class EntidadesController : ControllerBase
+    public class EspecialidadesController : ControllerBase
     {
         private IEspecialidadeRepository EspecialidadeRepository { get; set; }
 
-        public EntidadesController()
+        public EspecialidadesController()
         {
             EspecialidadeRepository = new EspecialidadeRepository();
         }
@@ -41,7 +41,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize("Administrador")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Especialidades especialidade)
         {
             try
