@@ -82,7 +82,12 @@ namespace Senai.SPMedicalGroup.WebAPI
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseMvc(
+                //rota => rota.MapRoute(
+                //    name: "defaults",
+                //    template: "{controller=Swagger}/{action=Get}"
+                //)
+            );
         }
     }
 }

@@ -517,6 +517,23 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Status",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar todos",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
