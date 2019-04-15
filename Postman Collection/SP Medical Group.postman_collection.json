@@ -118,6 +118,17 @@
 						"description": null
 					},
 					"response": []
+				},
+				{
+					"name": "Listar por usuário logado",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
 				}
 			]
 		},

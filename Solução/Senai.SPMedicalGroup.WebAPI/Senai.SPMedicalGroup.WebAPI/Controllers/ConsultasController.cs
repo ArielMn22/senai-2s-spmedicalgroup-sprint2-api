@@ -30,7 +30,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Listar()
         {
             try
@@ -47,7 +47,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Consultas consulta)
         {
             try
@@ -105,7 +105,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpGet("paciente")]
-        [Authorize(Roles = "Paciente")]
+        //[Authorize(Roles = "Paciente")]
         public IActionResult ListarPorPaciente()
         {
             try
@@ -134,7 +134,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpGet("listarporusuariologado")]
-        [Authorize]
+        //[Authorize]
         public IActionResult ListarPorLogado()
         {
             try
@@ -144,11 +144,13 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
 
                 if (usuarioTipo == "Médico")
                 {
-                    return Ok(ConsultaRepository.ListarPorIdMedico(usuarioId));
+                    Medicos medicoProcurado = MedicoRepository.BuscarMedicoPorIdUsuario(usuarioId);
+                    return Ok(ConsultaRepository.ListarPorIdMedico(medicoProcurado.Id));
                 }
                 else if (usuarioTipo == "Paciente")
                 {
-                    return Ok(ConsultaRepository.ListarPorIdPaciente(usuarioId));
+                    Pacientes pacienteProcurado = PacienteRepository.BuscarPacientePorIdUsuario(usuarioId);
+                    return Ok(ConsultaRepository.ListarPorIdPaciente(pacienteProcurado.Id));
                 }
                 else
                 {

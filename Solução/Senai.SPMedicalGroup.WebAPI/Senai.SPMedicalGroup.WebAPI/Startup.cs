@@ -59,6 +59,15 @@ namespace Senai.SPMedicalGroup.WebAPI
             {
                 c.SwaggerDoc("v1", new Info { Title = "SP Medical Group", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +90,8 @@ namespace Senai.SPMedicalGroup.WebAPI
             });
 
             app.UseAuthentication();
+
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseMvc(
                 //rota => rota.MapRoute(
