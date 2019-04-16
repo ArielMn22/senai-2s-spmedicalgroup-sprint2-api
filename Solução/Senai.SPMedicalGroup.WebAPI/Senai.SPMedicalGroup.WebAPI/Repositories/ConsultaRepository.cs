@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,13 +47,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<Consultas> ListarPorIdMedico(int idMedico)
+        public List<ConsultasViewModel> ListarPorIdMedico(int idMedico)
         {
+            List<Consultas> consultas = new List<Consultas>();
+
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Consultas.Where(x => x.IdMedico == idMedico)
-                    .Include(x => x.IdPaciente)
+               consultas = ctx.Consultas.Where(x => x.IdMedico == idMedico)
+                    //.Include(x => x.IdPaciente)
+                    .Include(x => x.IdMedicoNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdStatusNavigation)
                     .ToList();
+
+                return TransformaEmConsultasViewModel(consultas);
             }
         }
 
@@ -64,14 +74,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<Consultas> ListarPorIdPaciente(int idPaciente)
+        public List<ConsultasViewModel> ListarPorIdPaciente(int idPaciente)
         {
+            List<Consultas> consultas = new List<Consultas>();
+
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 // Retorna as consultas do paciente
-                return ctx.Consultas.Where(x => x.IdPaciente == idPaciente)
+                consultas = ctx.Consultas.Where(x => x.IdPaciente == idPaciente)
                     .Include(x => x.IdMedicoNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdStatusNavigation)
                     .ToList();
+
+                return TransformaEmConsultasViewModel(consultas);
             }
         }
 
@@ -102,6 +120,30 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
 
             return true;
+        }
+
+        public List<ConsultasViewModel> TransformaEmConsultasViewModel(List<Consultas> consultas)
+        {
+            List<ConsultasViewModel> consultasViewModel = new List<ConsultasViewModel>();
+
+            foreach (Consultas consulta in consultas)
+            {
+                ConsultasViewModel consultaViewModel = new ConsultasViewModel()
+                {
+                    PacienteNome = consulta.IdPacienteNavigation.IdUsuarioNavigation.Nome,
+                    PacienteEmail = consulta.IdPacienteNavigation.IdUsuarioNavigation.Email,
+                    MedicoNome = consulta.IdMedicoNavigation.IdUsuarioNavigation.Nome,
+                    MedicoEmail = consulta.IdMedicoNavigation.IdUsuarioNavigation.Email,
+                    Especialidade = consulta.IdMedicoNavigation.IdEspecialidadeNavigation.Nome,
+                    Descricao = consulta.Observacoes,
+                    DataConsulta = consulta.DataConsulta.ToString(),
+                    Preco = consulta.Preco.ToString(),
+                    Status = consulta.IdStatusNavigation.Nome
+                };
+
+                consultasViewModel.Add(consultaViewModel);
+            }
+            return consultasViewModel;
         }
     }
 }

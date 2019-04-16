@@ -133,7 +133,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost("paciente")]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult CadastrarPaciente([FromForm] PacienteStandaloneViewModel pacienteModel)
         {
             try
