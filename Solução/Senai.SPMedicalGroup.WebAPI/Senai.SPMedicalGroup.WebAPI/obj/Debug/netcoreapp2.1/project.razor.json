@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  }
+}

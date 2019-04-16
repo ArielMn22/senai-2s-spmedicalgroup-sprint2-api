@@ -1,4 +1,5 @@
-﻿using Senai.SPMedicalGroup.WebAPI.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Consultas.Where(x => x.IdMedico == idMedico).ToList();
+                return ctx.Consultas.Where(x => x.IdMedico == idMedico)
+                    .Include(x => x.IdPaciente)
+                    .ToList();
             }
         }
 
@@ -66,7 +69,9 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 // Retorna as consultas do paciente
-                return ctx.Consultas.Where(x => x.IdPaciente == idPaciente).ToList();
+                return ctx.Consultas.Where(x => x.IdPaciente == idPaciente)
+                    .Include(x => x.IdMedicoNavigation)
+                    .ToList();
             }
         }
 
