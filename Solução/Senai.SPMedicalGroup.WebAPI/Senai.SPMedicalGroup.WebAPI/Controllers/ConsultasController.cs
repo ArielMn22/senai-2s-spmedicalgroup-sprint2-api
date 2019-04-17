@@ -152,11 +152,15 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                     Pacientes pacienteProcurado = PacienteRepository.BuscarPacientePorIdUsuario(usuarioId);
                     return Ok(ConsultaRepository.ListarPorIdPaciente(pacienteProcurado.Id));
                 }
+                else if (usuarioTipo == "Administrador")
+                {
+                    return Ok(ConsultaRepository.ListarTodas());
+                }
                 else
                 {
                     return BadRequest(new
                     {
-                        mensagem = "Não foi possível listar, verifique se está logado como paciente ou médico."
+                        mensagem = "Não foi possível listar, verifique se está logado como paciente, médico ou administrador."
                     });
                 }
 

@@ -10,7 +10,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// Lista todas as consultas;
         /// </summary>
         /// <returns>Retorna uma lista de consultas.</returns>
-        List<Consultas> ListarTodas();
+        List<ConsultasViewModel> ListarTodas();
 
         /// <summary>
         /// Atualiza uma consulta com as informções passadas.

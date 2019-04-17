@@ -66,12 +66,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<Consultas> ListarTodas()
+        public List<ConsultasViewModel> ListarTodas()
         {
+            List<Consultas> consultas = new List<Consultas>();
+
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Consultas.ToList();
+                 consultas = ctx.Consultas
+                    .Include(x => x.IdMedicoNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdStatusNavigation)
+                    .ToList();
             }
+
+            return TransformaEmConsultasViewModel(consultas);
         }
 
         public List<ConsultasViewModel> ListarPorIdPaciente(int idPaciente)
