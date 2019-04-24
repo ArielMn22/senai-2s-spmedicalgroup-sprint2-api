@@ -140,6 +140,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             {
                 ConsultasViewModel consultaViewModel = new ConsultasViewModel()
                 {
+                    Id = consulta.Id,
                     PacienteNome = consulta.IdPacienteNavigation.IdUsuarioNavigation.Nome,
                     PacienteEmail = consulta.IdPacienteNavigation.IdUsuarioNavigation.Email,
                     MedicoNome = consulta.IdMedicoNavigation.IdUsuarioNavigation.Nome,

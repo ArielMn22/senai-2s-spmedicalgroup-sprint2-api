@@ -7,6 +7,7 @@ namespace Senai.SPMedicalGroup.WebAPI.ViewModels
 {
     public class ConsultasViewModel
     {
+        public int Id { get; set; }
         public string PacienteNome { get; set; }
         public string PacienteEmail { get; set; }
 
