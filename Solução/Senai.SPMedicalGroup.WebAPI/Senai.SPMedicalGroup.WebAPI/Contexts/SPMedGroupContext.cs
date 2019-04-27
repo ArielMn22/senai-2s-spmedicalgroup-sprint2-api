@@ -30,7 +30,6 @@ namespace Senai.SPMedicalGroup.WebAPI.Domains
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=SPMEDICALGROUP_TARDE; user id=sa; pwd=132");
-                //optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress_new; Initial Catalog=SPMEDICALGROUP_TARDE; user id=sa; pwd=611810");
             }
         }
 
