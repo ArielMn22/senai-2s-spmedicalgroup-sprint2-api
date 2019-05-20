@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI.csproj": {}
+  },
+  "projects": {
+    "E:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI.csproj",
+        "projectName": "Senai.SPMedicalGroup.WebAPI",
+        "projectPath": "E:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\Sexta-Feira\\.nuget\\packages\\",
+        "outputPath": "E:\\Ariel\\Code-Repositories\\GitHub\\senai-2s-spmedicalgroup-sprint2-api\\Solução\\Senai.SPMedicalGroup.WebAPI\\Senai.SPMedicalGroup.WebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sexta-Feira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.10.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

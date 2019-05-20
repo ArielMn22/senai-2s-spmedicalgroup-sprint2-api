@@ -134,7 +134,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpGet("listarporusuariologado")]
-        //[Authorize]
+        [Authorize]
         public IActionResult ListarPorLogado()
         {
             try

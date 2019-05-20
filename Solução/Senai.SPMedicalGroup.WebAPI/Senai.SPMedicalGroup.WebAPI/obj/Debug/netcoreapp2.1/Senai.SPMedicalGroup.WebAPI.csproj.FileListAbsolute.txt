@@ -26,3 +26,17 @@ D:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\
 D:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.RazorTargetAssemblyInfo.cache
 D:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.dll
 D:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.pdb
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\bin\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.deps.json
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\bin\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.runtimeconfig.json
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\bin\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.runtimeconfig.dev.json
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\bin\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.dll
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\bin\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.pdb
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.csprojAssemblyReference.cache
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.csproj.CoreCompileInputs.cache
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.RazorAssemblyInfo.cache
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.RazorAssemblyInfo.cs
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.AssemblyInfoInputs.cache
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.AssemblyInfo.cs
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.RazorTargetAssemblyInfo.cache
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.dll
+E:\Ariel\Code-Repositories\GitHub\senai-2s-spmedicalgroup-sprint2-api\Solução\Senai.SPMedicalGroup.WebAPI\Senai.SPMedicalGroup.WebAPI\obj\Debug\netcoreapp2.1\Senai.SPMedicalGroup.WebAPI.pdb
