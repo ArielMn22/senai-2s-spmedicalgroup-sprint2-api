@@ -202,5 +202,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 });
             }
         }
+
+        [HttpPost("mongo/consultas")]
+        public IActionResult Cadastrar(ConsultaLocalizacao consulta)
+        {
+            try
+            {
+                return Ok(); //Implementar
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new
+                {
+                    mensagem = "Erro: " + ex
+                });
+            }
+        }
     }
 }
