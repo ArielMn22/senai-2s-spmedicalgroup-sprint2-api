@@ -21,12 +21,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         private IConsultaRepository ConsultaRepository { get; set; }
         private IPacienteRepository PacienteRepository { get; set; }
         private IMedicoRepository MedicoRepository { get; set; }
+        private IConsultaLocalizacaoRepository ConsultaLocalizacaoRepository { get; set; }
 
         public ConsultasController()
         {
             ConsultaRepository = new ConsultaRepository();
             PacienteRepository = new PacienteRepository();
             MedicoRepository = new MedicoRepository();
+            ConsultaLocalizacaoRepository = new ConsultaLocalizacaoRepository();
         }
 
         [HttpGet]
@@ -203,11 +205,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
             }
         }
 
-        [HttpPost("mongo/consultas")]
-        public IActionResult Cadastrar(ConsultaLocalizacao consulta)
+        [HttpPost("mongo")]
+        public IActionResult CadastrarConsultaLocalizacao(ConsultaLocalizacao consulta)
         {
             try
             {
+                ConsultaLocalizacaoRepository.Cadastrar(consulta);
                 return Ok(); //Implementar
             }
             catch (Exception ex)
@@ -216,6 +219,22 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 return BadRequest(new
                 {
                     mensagem = "Erro: " + ex
+                });
+            }
+        }
+
+        [HttpGet("mongo")]
+        public IActionResult ListarConsultasLocalizacao()
+        {
+            try
+            {
+                return Ok(ConsultaLocalizacaoRepository.Listar());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Error: " + ex
                 });
             }
         }
