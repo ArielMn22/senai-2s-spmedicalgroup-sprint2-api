@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             _consultaLocalizacao.InsertOne(consulta);
         }
 
-        public List<ConsultaLocalizacao> Listar()
+        public List<ConsultaLocalidadeViewModel> Listar()
         {
             return _consultaLocalizacao.Find(async => true).ToList();
         }

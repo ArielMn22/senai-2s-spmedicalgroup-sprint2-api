@@ -30,7 +30,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"idPaciente\": 7,\n    \"idMedico\": 3,\n    \"dataConsulta\": \"2019-01-20T15:00:00\",\n    \"observacoes\": \"NOVA\",\n    \"idStatus\": 3\n}"
+							"raw": "{\n    \"idPaciente\": 7,\n    \"idMedico\": 3,\n    \"dataConsulta\": \"2012-01-20T15:31:31\",\n    \"observacoes\": \"NOVA\",\n    \"preco\" : 333,\n    \"idStatus\": 3\n}"
 						},
 						"description": null
 					},
@@ -122,9 +122,15 @@
 				{
 					"name": "Listar por usuário logado",
 					"request": {
-						"url": "",
+						"url": "http://localhost:5000/api/consultas/listarporusuariologado",
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGVuYS5zdHJhZGFAc3BtZWRpY2FsZ3JvdXAuY29tLmJyIiwianRpIjoiMyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik3DqWRpY28iLCJ0aXBvVXN1YXJpbyI6Ik3DqWRpY28iLCJleHAiOjE1NTc4NjI4NDIsImlzcyI6IlNwTWVkR3JvdXAuV2ViQXBpIiwiYXVkIjoiU3BNZWRHcm91cC5XZWJBcGkifQ.JMLKQ29NgOWL4IAi0yeamlfY9xP4VCRD1bLAj9Trw1U",
+								"description": ""
+							}
+						],
 						"body": {},
 						"description": ""
 					},
@@ -540,6 +546,60 @@
 						"method": "GET",
 						"header": [],
 						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Localização",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar Localizações",
+					"request": {
+						"url": "http://192.168.3.143:5000/api/localidades",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ConsultasLocalizacao",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar Consulta Localização",
+					"request": {
+						"url": "http://192.168.3.143:5000/api/consultas/mongo",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Consulta Localização",
+					"request": {
+						"url": "http://192.168.3.143:5000/api/consultas/mongo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"longitude\": -23.5364933,\n     \"latitude\": -46.6483345,\n\t\"idConsulta\" : 2\n}"
+						},
 						"description": ""
 					},
 					"response": []

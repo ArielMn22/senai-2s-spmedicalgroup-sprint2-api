@@ -1,4 +1,5 @@
 ﻿using Senai.SPMedicalGroup.WebAPI.Domains;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// Listar as localizações das consultas.
         /// </summary>
         /// <returns>A localização da consulta, junto com os dados referentes à ela.</returns>
-        List<ConsultaLocalizacao> Listar();
+        List<ConsultaLocalidadeViewModel> Listar();
 
         /// <summary>
         /// Cadastrar a localização de uma consulta. Obs: Junto com seu id.

@@ -22,7 +22,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// Cadastra uma consulta.
         /// </summary>
         /// <param name="consulta">Um objeto do tipo Consultas.</param>
-        void Cadastrar(Consultas consulta);
+        int Cadastrar(Consultas consulta);
 
         /// <summary>
         /// Lista as consultas que possuem o Id do médico passado por parâmetro;
@@ -46,6 +46,13 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         Consultas BuscarPorId(int id);
 
         /// <summary>
+        /// Busca uma consultaViewModel pelo Id Consultas.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ConsultasViewModel BuscarPorIdViewModel(int id);
+
+        /// <summary>
         /// Valida se a consulta pode ser cadastrada ou não;
         /// </summary>
         /// <param name="consulta">Objeto Consultas</param>
@@ -59,5 +66,17 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// <param name="consultas">Consultas</param>
         /// <returns>Uma lista de ConsultasViewModel</returns>
         List<ConsultasViewModel> TransformaEmConsultasViewModel(List<Consultas> consultas);
+
+        /// <summary>
+        /// Listar as localizações das consultas.
+        /// </summary>
+        /// <returns>A localização da consulta, junto com os dados referentes à ela.</returns>
+        List<ConsultaLocalidadeViewModel> Listar();
+
+        /// <summary>
+        /// Cadastrar a localização de uma consulta. Obs: Junto com seu id.
+        /// </summary>
+        /// <param name="consulta">ConsultaLocalização Object.</param>
+        void Cadastrar(ConsultaLocalizacao consulta);
     }
 }

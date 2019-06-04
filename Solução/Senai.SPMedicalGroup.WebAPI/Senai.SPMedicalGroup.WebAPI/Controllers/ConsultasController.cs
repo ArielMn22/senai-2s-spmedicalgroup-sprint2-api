@@ -10,6 +10,7 @@ using Senai.SPMedicalGroup.WebAPI.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Senai.SPMedicalGroup.WebAPI.ViewModels;
 
 namespace Senai.SPMedicalGroup.WebAPI.Controllers
 {
@@ -49,14 +50,17 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Administrador")]
-        public IActionResult Cadastrar(Consultas consulta)
+        [Authorize(Roles = "Administrador")]
+        public IActionResult Cadastrar(CadastrarConsultaViewModel consultaViewModel)
         {
             try
             {
-                if (ConsultaRepository.ValidarConsulta(consulta))
+                if (ConsultaRepository.ValidarConsulta(consultaViewModel.Consulta))
                 {
-                    ConsultaRepository.Cadastrar(consulta);
+                    int idConsulta = ConsultaRepository.Cadastrar(consultaViewModel.Consulta);
+
+                    consultaViewModel.ConsultaLocalizacao.IdConsulta = idConsulta;
+                    ConsultaLocalizacaoRepository.Cadastrar(consultaViewModel.ConsultaLocalizacao);
                     return Ok();
                 }
                 else

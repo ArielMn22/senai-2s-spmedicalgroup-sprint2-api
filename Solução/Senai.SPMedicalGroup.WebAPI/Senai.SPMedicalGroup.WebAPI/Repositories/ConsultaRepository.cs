@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver;
 using Senai.SPMedicalGroup.WebAPI.Domains;
 using Senai.SPMedicalGroup.WebAPI.Interfaces;
 using Senai.SPMedicalGroup.WebAPI.ViewModels;
@@ -10,6 +11,15 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
 {
     public class ConsultaRepository : IConsultaRepository
     {
+        private readonly IMongoCollection<ConsultaLocalizacao> _consultaLocalizacao;
+
+        public ConsultaRepository()
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("spmedicalgroupAriel");
+            _consultaLocalizacao = database.GetCollection<ConsultaLocalizacao>("consultas");
+        }
+
         public void Atualizar(Consultas novaConsulta, Consultas consultaCadastrada)
         {
             // Validações para ver quais informações vão ser atualizadas.
@@ -38,12 +48,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public void Cadastrar(Consultas consulta)
+        public int Cadastrar(Consultas consulta)
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 ctx.Consultas.Add(consulta);
                 ctx.SaveChanges();
+
+                return consulta.Id;
             }
         }
 
@@ -53,14 +65,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
 
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-               consultas = ctx.Consultas.Where(x => x.IdMedico == idMedico)
-                    //.Include(x => x.IdPaciente)
-                    .Include(x => x.IdMedicoNavigation)
-                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
-                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
-                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
-                    .Include(x => x.IdStatusNavigation)
-                    .ToList();
+                consultas = ctx.Consultas.Where(x => x.IdMedico == idMedico)
+                     //.Include(x => x.IdPaciente)
+                     .Include(x => x.IdMedicoNavigation)
+                     .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                     .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                     .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                     .Include(x => x.IdStatusNavigation)
+                     .ToList();
 
                 return TransformaEmConsultasViewModel(consultas);
             }
@@ -72,13 +84,13 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
 
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                 consultas = ctx.Consultas
-                    .Include(x => x.IdMedicoNavigation)
-                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
-                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
-                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
-                    .Include(x => x.IdStatusNavigation)
-                    .ToList();
+                consultas = ctx.Consultas
+                   .Include(x => x.IdMedicoNavigation)
+                   .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                   .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                   .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                   .Include(x => x.IdStatusNavigation)
+                   .ToList();
             }
 
             return TransformaEmConsultasViewModel(consultas);
@@ -155,6 +167,35 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                 consultasViewModel.Add(consultaViewModel);
             }
             return consultasViewModel;
+        }
+
+        public void Cadastrar(ConsultaLocalizacao consulta)
+        {
+            _consultaLocalizacao.InsertOne(consulta);
+        }
+
+        public List<ConsultaLocalidadeViewModel> Listar()
+        {
+            List<ConsultaLocalizacao> consultas = _consultaLocalizacao.Find(async => true).ToList();
+
+            List<ConsultaLocalidadeViewModel> consultasViewModel = new List<ConsultaLocalidadeViewModel>();
+
+            //foreach (ConsultaLocalizacao consulta in consultas)
+            //{
+            //    ConsultaLocalidadeViewModel consultaViewModel = new ConsultaLocalidadeViewModel()
+            //    {
+            //        Id = consultas.Id,
+            //        PacienteNome = consultas.
+            //    };
+            //}
+        }
+
+        public ConsultasViewModel BuscarPorIdViewModel(int id)
+        {
+            using (SPMedGroupContext ctx = new SPMedGroupContext())
+            {
+                Consultas consulta = ctx.Consultas.Find(id);
+            }
         }
     }
 }
