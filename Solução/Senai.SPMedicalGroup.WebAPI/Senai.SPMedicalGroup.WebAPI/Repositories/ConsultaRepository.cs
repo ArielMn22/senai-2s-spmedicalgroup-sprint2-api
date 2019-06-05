@@ -169,32 +169,69 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             return consultasViewModel;
         }
 
-        public void Cadastrar(ConsultaLocalizacao consulta)
+        public void CadastrarConsultaLocalidade(ConsultaLocalizacao consulta)
         {
             _consultaLocalizacao.InsertOne(consulta);
         }
 
-        public List<ConsultaLocalidadeViewModel> Listar()
+        public List<ConsultaLocalidadeViewModel> ListarConsultasLocalidade()
         {
             List<ConsultaLocalizacao> consultas = _consultaLocalizacao.Find(async => true).ToList();
 
             List<ConsultaLocalidadeViewModel> consultasViewModel = new List<ConsultaLocalidadeViewModel>();
 
-            //foreach (ConsultaLocalizacao consulta in consultas)
-            //{
-            //    ConsultaLocalidadeViewModel consultaViewModel = new ConsultaLocalidadeViewModel()
-            //    {
-            //        Id = consultas.Id,
-            //        PacienteNome = consultas.
-            //    };
-            //}
+            foreach (ConsultaLocalizacao consultaLocalizacao in consultas)
+            {
+                ConsultasViewModel consultaViewModel = BuscarPorIdViewModel(consultaLocalizacao.IdConsulta);
+
+                ConsultaLocalidadeViewModel consultaLocalidadeViewModel = new ConsultaLocalidadeViewModel()
+                {
+                    Id = consultaViewModel.Id,
+                    PacienteNome = consultaViewModel.PacienteNome,
+                    PacienteEmail = consultaViewModel.PacienteEmail,
+                    MedicoNome = consultaViewModel.MedicoNome,
+                    MedicoEmail = consultaViewModel.MedicoEmail,
+                    Especialidade = consultaViewModel.Especialidade,
+                    Descricao = consultaViewModel.Descricao,
+                    DataConsulta = consultaViewModel.DataConsulta,
+                    Preco = consultaViewModel.Preco,
+                    Status = consultaViewModel.Status,
+                    Latitude = consultaLocalizacao.Latitude,
+                    Longitude = consultaLocalizacao.Longitude
+                };
+
+                consultasViewModel.Add(consultaLocalidadeViewModel);
+            }
+
+            return consultasViewModel;
         }
 
         public ConsultasViewModel BuscarPorIdViewModel(int id)
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                Consultas consulta = ctx.Consultas.Find(id);
+                Consultas consultaProcurada = ctx.Consultas
+                    .Include(x=>x.IdMedicoNavigation)
+                    .Include(x=>x.IdMedicoNavigation.IdUsuarioNavigation)
+                    .Include(x=>x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Include(x=>x.IdPacienteNavigation)
+                    .Include(x=>x.IdPacienteNavigation.IdUsuarioNavigation)
+                    .Include(x=>x.IdStatusNavigation)
+                    .FirstOrDefault(x => x.Id == id);
+
+                return new ConsultasViewModel()
+                {
+                    Id = consultaProcurada.Id,
+                    PacienteNome = consultaProcurada.IdPacienteNavigation.IdUsuarioNavigation.Nome,
+                    PacienteEmail = consultaProcurada.IdPacienteNavigation.IdUsuarioNavigation.Email,
+                    MedicoNome = consultaProcurada.IdMedicoNavigation.IdUsuarioNavigation.Nome,
+                    MedicoEmail = consultaProcurada.IdMedicoNavigation.IdUsuarioNavigation.Email,
+                    Especialidade = consultaProcurada.IdMedicoNavigation.IdEspecialidadeNavigation.Nome,
+                    Descricao = consultaProcurada.Observacoes,
+                    DataConsulta = consultaProcurada.DataConsulta.ToString(),
+                    Preco = consultaProcurada.Preco.ToString(),
+                    Status = consultaProcurada.IdStatusNavigation.Nome,
+                };
             }
         }
     }

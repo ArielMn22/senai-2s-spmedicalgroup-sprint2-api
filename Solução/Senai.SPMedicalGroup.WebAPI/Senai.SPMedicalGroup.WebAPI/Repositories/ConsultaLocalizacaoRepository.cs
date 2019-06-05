@@ -25,9 +25,14 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             _consultaLocalizacao.InsertOne(consulta);
         }
 
-        public List<ConsultaLocalidadeViewModel> Listar()
+        public List<ConsultaLocalizacao> Listar()
         {
             return _consultaLocalizacao.Find(async => true).ToList();
+        }
+
+        List<ConsultaLocalidadeViewModel> IConsultaLocalizacaoRepository.Listar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,14 +22,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         private IConsultaRepository ConsultaRepository { get; set; }
         private IPacienteRepository PacienteRepository { get; set; }
         private IMedicoRepository MedicoRepository { get; set; }
-        private IConsultaLocalizacaoRepository ConsultaLocalizacaoRepository { get; set; }
 
         public ConsultasController()
         {
             ConsultaRepository = new ConsultaRepository();
             PacienteRepository = new PacienteRepository();
             MedicoRepository = new MedicoRepository();
-            ConsultaLocalizacaoRepository = new ConsultaLocalizacaoRepository();
         }
 
         [HttpGet]
@@ -60,7 +58,8 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                     int idConsulta = ConsultaRepository.Cadastrar(consultaViewModel.Consulta);
 
                     consultaViewModel.ConsultaLocalizacao.IdConsulta = idConsulta;
-                    ConsultaLocalizacaoRepository.Cadastrar(consultaViewModel.ConsultaLocalizacao);
+
+                    ConsultaRepository.CadastrarConsultaLocalidade(consultaViewModel.ConsultaLocalizacao);
                     return Ok();
                 }
                 else
@@ -214,7 +213,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         {
             try
             {
-                ConsultaLocalizacaoRepository.Cadastrar(consulta);
+                ConsultaRepository.CadastrarConsultaLocalidade(consulta);
                 return Ok(); //Implementar
             }
             catch (Exception ex)
@@ -232,7 +231,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
         {
             try
             {
-                return Ok(ConsultaLocalizacaoRepository.Listar());
+                return Ok(ConsultaRepository.ListarConsultasLocalidade());
             }
             catch (Exception ex)
             {
