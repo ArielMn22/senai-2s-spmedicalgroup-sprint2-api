@@ -211,12 +211,12 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
                 Consultas consultaProcurada = ctx.Consultas
-                    .Include(x=>x.IdMedicoNavigation)
-                    .Include(x=>x.IdMedicoNavigation.IdUsuarioNavigation)
-                    .Include(x=>x.IdMedicoNavigation.IdEspecialidadeNavigation)
-                    .Include(x=>x.IdPacienteNavigation)
-                    .Include(x=>x.IdPacienteNavigation.IdUsuarioNavigation)
-                    .Include(x=>x.IdStatusNavigation)
+                    .Include(x => x.IdMedicoNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Include(x => x.IdPacienteNavigation)
+                    .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
+                    .Include(x => x.IdStatusNavigation)
                     .FirstOrDefault(x => x.Id == id);
 
                 return new ConsultasViewModel()
@@ -233,6 +233,90 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                     Status = consultaProcurada.IdStatusNavigation.Nome,
                 };
             }
+        }
+
+        public List<ConsultaLocalidadeViewModel> ListarConsultasLocalidadePorPaciente(Pacientes paciente)
+        {
+            List<ConsultaLocalidadeViewModel> consultas = ListarConsultasLocalidade();
+            List<ConsultaLocalidadeViewModel> consultasFiltrada = new List<ConsultaLocalidadeViewModel>();
+
+            string emailBuscado = paciente.IdUsuarioNavigation.Email;
+
+            foreach (ConsultaLocalidadeViewModel item in consultas)
+            {
+                if (item.PacienteEmail == emailBuscado)
+                {
+                    consultasFiltrada.Add(item);
+                }
+            }
+            return consultasFiltrada;
+        }
+
+        public List<ConsultaLocalidadeViewModel> ListarConsultasLocalidadePorMedico(Medicos medico)
+        {
+            List<ConsultaLocalidadeViewModel> consultas = ListarConsultasLocalidade();
+            List<ConsultaLocalidadeViewModel> consultasFiltrada = new List<ConsultaLocalidadeViewModel>();
+
+            string emailBuscado = medico.IdUsuarioNavigation.Email;
+
+            foreach (ConsultaLocalidadeViewModel item in consultas)
+            {
+                if (item.MedicoNome == medico.IdUsuarioNavigation.Nome)
+                {
+                    consultasFiltrada.Add(item);
+                }
+            }
+            return consultasFiltrada;
+        }
+
+        public List<ConsultaLocalidadeViewModel> TransformaEmConsultaLocalidadeViewModel(List<ConsultasViewModel> consultas)
+        {
+            List<ConsultaLocalidadeViewModel> consultaLocalidades = new List<ConsultaLocalidadeViewModel>();
+
+            List<ConsultaLocalidadeViewModel> consultasLocalidadesMongo = ListarConsultasLocalidade();
+
+            foreach (ConsultasViewModel item in consultas)
+            {
+                foreach (ConsultaLocalidadeViewModel itemMongo in consultasLocalidadesMongo)
+                {
+                    if (itemMongo.Id == item.Id)
+                    {
+                        consultaLocalidades.Add(new ConsultaLocalidadeViewModel()
+                        {
+                            Id = item.Id,
+                            PacienteNome = item.PacienteNome,
+                            PacienteEmail = item.PacienteEmail,
+                            MedicoNome = item.MedicoNome,
+                            MedicoEmail = item.MedicoEmail,
+                            Especialidade = item.Especialidade,
+                            Descricao = item.Descricao,
+                            DataConsulta = item.DataConsulta,
+                            Preco = item.Preco,
+                            Status = item.Status,
+                            Latitude = itemMongo.Latitude,
+                            Longitude = itemMongo.Longitude
+                        });
+                    }
+                    else
+                    {
+                        consultaLocalidades.Add(new ConsultaLocalidadeViewModel()
+                        {
+                            Id = item.Id,
+                            PacienteNome = item.PacienteNome,
+                            PacienteEmail = item.PacienteEmail,
+                            MedicoNome = item.MedicoNome,
+                            MedicoEmail = item.MedicoEmail,
+                            Especialidade = item.Especialidade,
+                            Descricao = item.Descricao,
+                            DataConsulta = item.DataConsulta,
+                            Preco = item.Preco,
+                            Status = item.Status
+                        });
+                    }
+                }
+            }
+
+            return consultaLocalidades;
         }
     }
 }

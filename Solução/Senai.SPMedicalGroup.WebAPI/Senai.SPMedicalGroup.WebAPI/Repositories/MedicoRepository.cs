@@ -15,7 +15,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
         {
             using (SPMedGroupContext ctx = new SPMedGroupContext())
             {
-                return ctx.Medicos.FirstOrDefault(x => x.IdUsuario == Idusuario);
+                return ctx.Medicos.Include(x=> x.IdUsuarioNavigation).FirstOrDefault(x => x.IdUsuario == Idusuario);
             }
         }
 

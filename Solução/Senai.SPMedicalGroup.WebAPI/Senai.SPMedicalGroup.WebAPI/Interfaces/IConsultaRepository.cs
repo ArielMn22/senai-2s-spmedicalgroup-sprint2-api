@@ -61,11 +61,19 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
 
         /// <summary>
         /// Transforma uma lista de Consultas em uma lista de ConsultasViewModel,
-        /// para que os dados possam retornados da API em segurança.
+        /// para que os dados possam ser retornados da API em segurança.
         /// </summary>
         /// <param name="consultas">Consultas</param>
         /// <returns>Uma lista de ConsultasViewModel</returns>
         List<ConsultasViewModel> TransformaEmConsultasViewModel(List<Consultas> consultas);
+
+        /// <summary>
+        /// Transforma uma lista de ConsultasViewModel em uma lista de ConsultaLocalidadeViewModel,
+        /// para que os dados possam ser retornados da API em segurança.
+        /// </summary>
+        /// <param name="consultas">ConsultasViewModel</param>
+        /// <returns>Uma lista de ConsultasViewModel</returns>
+        List<ConsultaLocalidadeViewModel> TransformaEmConsultaLocalidadeViewModel(List<ConsultasViewModel> consultas);
 
         /// <summary>
         /// Listar as localizações das consultas.
@@ -78,5 +86,18 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// </summary>
         /// <param name="consulta">ConsultaLocalização Object.</param>
         void CadastrarConsultaLocalidade(ConsultaLocalizacao consulta);
+
+        /// <summary>
+        /// Listar ConsultaLocalidadeViewModel por usuário logado.
+        /// </summary>
+        /// <returns></returns>
+        List<ConsultaLocalidadeViewModel> ListarConsultasLocalidadePorPaciente(Pacientes paciente);
+
+        /// <summary>
+        /// Listar ConsultaLocalidadeVIewMode por id médico.
+        /// </summary>
+        /// <param name="medico"></param>
+        /// <returns></returns>
+        List<ConsultaLocalidadeViewModel> ListarConsultasLocalidadePorMedico(Medicos medico);
     }
 }

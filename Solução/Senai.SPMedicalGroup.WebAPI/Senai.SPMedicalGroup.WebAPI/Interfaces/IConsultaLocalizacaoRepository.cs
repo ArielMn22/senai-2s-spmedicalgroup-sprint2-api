@@ -14,7 +14,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// </summary>
         /// <returns>A localização da consulta, junto com os dados referentes à ela.</returns>
         List<ConsultaLocalidadeViewModel> Listar();
-
+        
         /// <summary>
         /// Cadastrar a localização de uma consulta. Obs: Junto com seu id.
         /// </summary>

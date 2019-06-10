@@ -241,5 +241,45 @@ namespace Senai.SPMedicalGroup.WebAPI.Controllers
                 });
             }
         }
+
+        [Authorize]
+        [HttpGet("mongoLogado")]
+        public IActionResult ListarConsultaLocalizacaoLogado()
+        {
+            try
+            {
+                int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                string usuarioTipo = HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role).Value.ToString();
+
+                if (usuarioTipo == "Médico")
+                {
+                    Medicos medicoProcurado = MedicoRepository.BuscarMedicoPorIdUsuario(usuarioId);
+                    return Ok(ConsultaRepository.ListarConsultasLocalidadePorMedico(medicoProcurado));
+                }
+                else if (usuarioTipo == "Paciente")
+                {
+                    Pacientes pacienteProcurado = PacienteRepository.BuscarPacientePorIdUsuario(usuarioId);
+                    return Ok(ConsultaRepository.ListarConsultasLocalidadePorPaciente(pacienteProcurado));
+                }
+                else if (usuarioTipo == "Administrador")
+                {
+                    return Ok(ConsultaRepository.ListarConsultasLocalidade());
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        mensagem = "Não foi possível listar, verifique se está logado como paciente, médico ou administrador."
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    mensagem = ex
+                });
+            }
+        }
     }
 }
