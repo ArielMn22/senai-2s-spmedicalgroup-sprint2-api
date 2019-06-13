@@ -10,7 +10,8 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// Lista todas as consultas;
         /// </summary>
         /// <returns>Retorna uma lista de consultas.</returns>
-        List<ConsultasViewModel> ListarTodas();
+        //List<ConsultasViewModel> ListarTodas();
+        List<ConsultaLocalidadeViewModel> ListarTodas();
 
         /// <summary>
         /// Atualiza uma consulta com as informções passadas.
@@ -29,14 +30,16 @@ namespace Senai.SPMedicalGroup.WebAPI.Interfaces
         /// </summary>
         /// <param name="id">Id do médico</param>
         /// <returns>Uma lista de consultas.</returns>
-        List<ConsultasViewModel> ListarPorIdMedico(int idMedico);
+        //List<ConsultasViewModel> ListarPorIdMedico(int idMedico);
+        List<ConsultaLocalidadeViewModel> ListarPorIdMedico(int idMedico);
 
         /// <summary>
         /// Lista as consultas que possitem o id do paciente passado por parâmetro.
         /// </summary>
         /// <param name="id">Id do paciente.</param>
         /// <returns>Uma lista de consultas.</returns>
-        List<ConsultasViewModel> ListarPorIdPaciente(int idPaciente);
+        //List<ConsultasViewModel> ListarPorIdPaciente(int idPaciente);
+        List<ConsultaLocalidadeViewModel> ListarPorIdPaciente(int idPaciente);
 
         /// <summary>
         /// Busca um usuário pelo ID.

@@ -59,7 +59,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
             }
         }
 
-        public List<ConsultasViewModel> ListarPorIdMedico(int idMedico)
+        public List<ConsultaLocalidadeViewModel> ListarPorIdMedico(int idMedico)
         {
             List<Consultas> consultas = new List<Consultas>();
 
@@ -73,12 +73,11 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                      .Include(x => x.IdPacienteNavigation.IdUsuarioNavigation)
                      .Include(x => x.IdStatusNavigation)
                      .ToList();
-
-                return TransformaEmConsultasViewModel(consultas);
+                return TransformaEmConsultaLocalidadeViewModel(TransformaEmConsultasViewModel(consultas));
             }
         }
 
-        public List<ConsultasViewModel> ListarTodas()
+        public List<ConsultaLocalidadeViewModel> ListarTodas()
         {
             List<Consultas> consultas = new List<Consultas>();
 
@@ -93,10 +92,10 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                    .ToList();
             }
 
-            return TransformaEmConsultasViewModel(consultas);
+            return TransformaEmConsultaLocalidadeViewModel(TransformaEmConsultasViewModel(consultas));
         }
 
-        public List<ConsultasViewModel> ListarPorIdPaciente(int idPaciente)
+        public List<ConsultaLocalidadeViewModel> ListarPorIdPaciente(int idPaciente)
         {
             List<Consultas> consultas = new List<Consultas>();
 
@@ -111,7 +110,7 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                     .Include(x => x.IdStatusNavigation)
                     .ToList();
 
-                return TransformaEmConsultasViewModel(consultas);
+                return TransformaEmConsultaLocalidadeViewModel(TransformaEmConsultasViewModel(consultas));
             }
         }
 
@@ -275,12 +274,17 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
 
             List<ConsultaLocalidadeViewModel> consultasLocalidadesMongo = ListarConsultasLocalidade();
 
+            bool hasMongoVariant;
+
             foreach (ConsultasViewModel item in consultas)
             {
+                hasMongoVariant = false;
+
                 foreach (ConsultaLocalidadeViewModel itemMongo in consultasLocalidadesMongo)
                 {
-                    if (itemMongo.Id == item.Id)
+                    if (itemMongo.Id == item.Id) // Possui correspondente NoSql
                     {
+                        hasMongoVariant = true; // Possui um correspondente NoSql
                         consultaLocalidades.Add(new ConsultaLocalidadeViewModel()
                         {
                             Id = item.Id,
@@ -297,22 +301,25 @@ namespace Senai.SPMedicalGroup.WebAPI.Repositories
                             Longitude = itemMongo.Longitude
                         });
                     }
-                    else
+                }
+
+                if (!hasMongoVariant)
+                {
+                    consultaLocalidades.Add(new ConsultaLocalidadeViewModel()
                     {
-                        consultaLocalidades.Add(new ConsultaLocalidadeViewModel()
-                        {
-                            Id = item.Id,
-                            PacienteNome = item.PacienteNome,
-                            PacienteEmail = item.PacienteEmail,
-                            MedicoNome = item.MedicoNome,
-                            MedicoEmail = item.MedicoEmail,
-                            Especialidade = item.Especialidade,
-                            Descricao = item.Descricao,
-                            DataConsulta = item.DataConsulta,
-                            Preco = item.Preco,
-                            Status = item.Status
-                        });
-                    }
+                        Id = item.Id,
+                        PacienteNome = item.PacienteNome,
+                        PacienteEmail = item.PacienteEmail,
+                        MedicoNome = item.MedicoNome,
+                        MedicoEmail = item.MedicoEmail,
+                        Especialidade = item.Especialidade,
+                        Descricao = item.Descricao,
+                        DataConsulta = item.DataConsulta,
+                        Preco = item.Preco,
+                        Status = item.Status,
+                        Latitude = null,
+                        Longitude = null
+                    });
                 }
             }
 
