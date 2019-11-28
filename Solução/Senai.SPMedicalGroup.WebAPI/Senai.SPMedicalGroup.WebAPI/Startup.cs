@@ -78,6 +78,9 @@ namespace Senai.SPMedicalGroup.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            // Habilitando o uso de arquivos estáticos;
+            app.UseStaticFiles();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
